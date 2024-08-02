@@ -3,7 +3,10 @@ export default defineNitroConfig({
   srcDir: "server",
   routeRules: {
     '/store-api/**': {
-      proxy: 'https://korodrogerie.de/store-api/**'
+      cache: {
+        maxAge: 60 * 1 * 60,
+        swr: true
+      }
     }
   }
 });
